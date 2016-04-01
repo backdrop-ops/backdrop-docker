@@ -20,3 +20,9 @@ RUN curl -fSL "https://github.com/backdrop/backdrop/archive/${BACKDROP_VERSION}.
   && tar -xz --strip-components=1 -f backdrop.tar.gz \
   && rm backdrop.tar.gz \
   && chown -R www-data:www-data sites
+
+# Add custom entrypoint to set BACKDROP_SETTINGS correctly
+COPY docker-entrypoint.sh /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["apache2-foreground"]

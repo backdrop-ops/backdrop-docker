@@ -16,40 +16,62 @@ The comprehensive CMS for small to medium sized businesses and non-profits.
 The basic pattern for starting a `backdrop` instance is:
 
 ```console
-$ docker run --name some-backdrop -d kalabox/backdrop
+$ docker run --name some-backdrop --link some-mysql:mysql -d backdrop/backdrop
 ```
+
+The following environment variables are also honored for configuring your Backdrop CMS instance:
+
+- `-e BACKDROP_DB_HOST=...` (defaults to the IP and port of the linked `mysql` container)
+- `-e BACKDROP_DB_USER=...` (defaults to "root")
+- `-e BACKDROP_DB_PASSWORD=...` (defaults to the value of the `MYSQL_ROOT_PASSWORD` environment variable from the linked `mysql` container)
+- `-e BACKDROP_DB_NAME=...` (defaults to "backdrop")
+- `-e BACKDROP_DB_PORT=...` (defaults to 3306)
+- `-e BACKDROP_DB_DRIVER=...` (defaults to "mysql")
+
+The `BACKDROP_DB_NAME` **must already exist** on the given MySQL server. Check out the [official mysql image](https://hub.docker.com/_/mysql/) for more info on spinning up a DB.
 
 If you'd like to be able to access the instance from the host without the container's IP, standard port mappings can be used:
 
 ```console
-$ docker run --name some-backdrop -p 8080:80 kalabox/backdrop
+$ docker run --name some-backdrop --link some-mysql:mysql -p 8080:80 -d backdrop/backdrop
 ```
 
 Then, access it via `http://localhost:8080` or `http://host-ip:8080` in a browser.
 
-There are multiple database types supported by this image, most easily used via standard container linking. In the default configuration, SQLite can be used to avoid a second container and write to flat-files. More detailed instructions for different (more production-ready) database types follow.
-
-When first accessing the webserver provided by this image, it will go through a brief setup process. The details provided below are specifically for the "Set up database" step of that configuration process.
-
-## MySQL
+If you'd like to use an external database instead of a linked `mysql` container, specify the hostname and port with `BACKDROP_DB_HOST`/`BACKDROP_DB_PORT` along with the password in `BACKDROP_DB_PASSWORD` and the username in `BACKDROP_DB_USER` (if it is something other than `root`):
 
 ```console
-$ docker run --name some-backdrop --link some-mysql:mysql -d kalabox/backdrop
+$ docker run --name some-backdrop \
+  -e BACKDROP_DB_HOST=10.1.2.3 \
+  -e BACKDROP_DB_PORT=10432 \
+  -e BACKDROP_DB_USER=... \
+  -e BACKDROP_DB_PASSWORD=... \
+  -d backdrop/backdrop
 ```
 
-- Database type: `MySQL, MariaDB, or equivalent`
-- Database name/username/password: `<details for accessing your MySQL instance>` (`MYSQL_USER`, `MYSQL_PASSWORD`, `MYSQL_DATABASE`; see environment variables in the description for [`mysql`](https://registry.hub.docker.com/_/mysql/))
-- ADVANCED OPTIONS; Database host: `mysql` (for using the `/etc/hosts` entry added by `--link` to access the linked container's MySQL instance)
+## ... via [`docker-compose`](https://github.com/docker/compose)
 
-## PostgreSQL
+Example `docker-compose.yml` for `backdrop`:
 
-```console
-$ docker run --name some-backdrop --link some-postgres:postgres -d kalabox/backdrop
+```yaml
+backdrop:
+  image: backdrop/backdrop
+  links:
+    - db:mysql
+  ports:
+    - 8080:80
+
+db:
+  image: mysql
+  environment:
+    MYSQL_USER: backdrop
+    MYSQL_PASSWORD: backdrop
+    MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    MYSQL_DATABASE: backdrop
+
 ```
 
-- Database type: `PostgreSQL`
-- Database name/username/password: `<details for accessing your PostgreSQL instance>` (`POSTGRES_USER`, `POSTGRES_PASSWORD`; see environment variables in the description for [`postgres`](https://registry.hub.docker.com/_/postgres/))
-- ADVANCED OPTIONS; Database host: `postgres` (for using the `/etc/hosts` entry added by `--link` to access the linked container's PostgreSQL instance)
+Run `docker-compose up`, wait for it to initialize completely, and visit `http://localhost:8080` or `http://host-ip:8080`.
 
 ## Adding additional libraries / extensions
 
