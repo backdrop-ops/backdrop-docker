@@ -1,5 +1,5 @@
 # from https://backdropcms.org/requirements
-FROM php:5.6-fpm
+FROM php:7.2-fpm
 
 # install the PHP extensions we need
 RUN apt-get update && apt-get install -y libpng-dev libjpeg-dev libpq-dev \
