@@ -54,24 +54,66 @@ $ docker run --name some-backdrop \
 Example `docker-compose.yml` for `backdrop`:
 
 ```yaml
-backdrop:
-  image: backdrop/backdrop
-  links:
-    - db:mysql
-  ports:
-    - 8080:80
+version: '3'
+services:
 
-db:
-  image: mysql
-  environment:
-    MYSQL_USER: backdrop
-    MYSQL_PASSWORD: backdrop
-    MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-    MYSQL_DATABASE: backdrop
+  db:
+    image: mysql
+# Create a custom bridge network to facilitate better container networking.
+# This allows use of the container name as hostname.
+    networks:
+      -  backdrop-dev
+    restart: always
+# Adding persistent storage volumes.  These use default Docker volume locations.  To use user directories
+# specify the full path instead of a Docker Volume name.  You may have to set UID and GUID if you encounter permissions errors.
+# ex. - "/home/$USER/folder:/var/lib/mysql"
+    volumes:
+      - "bd_db_data:/var/lib/mysql"
+      - "bd_db_conf:/etc/mysql"
+      - "bd_db_logs:/var/log/mysql"
+    environment:
+      - MYSQL_USER=backdrop
+      - MYSQL_PASSWORD=backdrop
+      - MYSQL_ALLOW_EMPTY_PASSWORD='yes'
+      - MYSQL_DATABASE=backdrop
+      - MYSQL_ROOT_PASSWORD=rootpassword
+
+  backdrop:
+    image: backdrop
+# See above explanation for persistent storage.
+    volumes:
+      - "backdrop_data:/var/www/html/files"
+# See above description for custom bridge
+    networks:
+      - backdrop-dev
+# Because we want to bring up the database first
+    depends_on:
+      - db
+    links:
+      - db
+    ports:
+      - "8080:80"
+    restart: always
+    environment:
+      - BACKDROP_DB_HOST=db
+      - BACKDROP_DB_USER=backdrop
+      - BACKDROP_DB_PASSWORD=backdrop
+      - BACKDROP_DB_NAME=backdrop
+
+#  Make sure to comment out or change any of these volumes if you change any of the above
+volumes:
+  backdrop_data:
+  bd_db_data:
+  bd_db_conf:
+  bd_db_logs:
+
+networks:
+  backdrop-dev:
+    driver: bridge
 
 ```
 
-Run `docker-compose up`, wait for it to initialize completely, and visit `http://localhost:8080` or `http://host-ip:8080`.
+Run `docker-compose up -d`, wait for it to initialize completely, and visit `http://localhost:8080` or `http://host-ip:8080`.
 
 ## Adding additional libraries / extensions
 
