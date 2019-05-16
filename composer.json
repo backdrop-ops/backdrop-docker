@@ -1,0 +1,51 @@
+{
+    "name": "backdrop-ops/backdrop-docker",
+    "description": "Run Backdrop using Docker containers.",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require-dev": {
+        "backdrop/backdrop": "1.13.0",
+        "backdrop-contrib/drush": "0.1.0",
+        "phptaskman/drupal": "^0.1",
+        "drush/drush": "^8.2.3"
+    },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "backdrop/backdrop",
+                "version": "1.13.0",
+                "dist": {
+                    "url": "https://github.com/backdrop/backdrop/releases/download/1.13.0/backdrop.zip",
+                    "type": "zip"
+                },
+                "source": {
+                    "url": "https://github.com/backdrop/backdrop/",
+                    "type": "git",
+                    "reference": "1.x"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "backdrop-contrib/drush",
+                "version": "0.1.0",
+                "dist": {
+                    "url": "https://github.com/backdrop-contrib/drush/releases/download/0.1.0/drush.zip",
+                    "type": "zip"
+                },
+                "source": {
+                    "url": "https://github.com/backdrop-contrib/drush/",
+                    "type": "git",
+                    "reference": "tags/"
+                }
+            }
+        }
+    ],
+    "scripts": {
+        "post-install-cmd": [
+            "./vendor/bin/taskman backdrop:setup"
+        ]
+    }
+}

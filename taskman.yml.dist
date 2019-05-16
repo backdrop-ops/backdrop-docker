@@ -1,0 +1,49 @@
+backdrop:
+  root: build
+  base_url: "http://127.0.0.1:8080"
+
+  site:
+    name: "Site name"
+    mail: "info@example.org"
+    profile: "standard"
+    update: "false"
+    locale: "en"
+    sites_subdir: "default"
+
+  # Administrator account information.
+  account:
+    name: "admin"
+    password: "admin"
+    mail: "admin@example.org"
+
+  # Database settings.
+  database:
+    scheme: "mysql"
+    host: "db"
+    port: "3306"
+    name: "backdrop"
+    user: "root"
+    password: ""
+
+  drush:
+    options:
+      uri: "${backdrop.base_url}"
+
+commands:
+  backdrop:setup:
+    - { task: "copy", from: "vendor/backdrop/backdrop/", to: "${backdrop.root}", force: true }
+    - { task: "copy", from: "vendor/backdrop-contrib/drush/", to: ".drush/commands", force: true }
+    - ./vendor/bin/drush cc drush
+    - { task: "chmod", file: "${backdrop.root}/files", permissions: 0777, recursive: true }
+    - { task: "remove", file: "${backdrop.root}/settings.local.php" }
+    - { task: "append", file: "${backdrop.root}/settings.local.php", text: "<?php\n" }
+    - { task: "append", file: "${backdrop.root}/settings.local.php", text: "$database = 'mysql://root:@db/backdrop';" }
+  backdrop:install:
+    - ./vendor/bin/drush --root=${backdrop.root}
+      si
+        --account-name=${backdrop.site-install.options.account-name}
+        --account-pass=${backdrop.site-install.options.account-pass}
+        --account-mail=${backdrop.site-install.options.account-mail}
+        --sites-subdir=${backdrop.site.sites_subdir}
+        --db-url="${backdrop.database.scheme}://${backdrop.database.user}:${backdrop.database.password}@${backdrop.database.host}:${backdrop.database.port}/${backdrop.database.name}"
+        ${backdrop.site.profile}
