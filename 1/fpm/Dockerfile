@@ -1,5 +1,5 @@
 # from https://backdropcms.org/requirements
-FROM php:7.2-fpm
+FROM php:7.4-fpm
 
 # install the PHP extensions we need
 RUN apt-get update && apt-get install -y libpng-dev libjpeg-dev libpq-dev \
@@ -10,8 +10,8 @@ RUN apt-get update && apt-get install -y libpng-dev libjpeg-dev libpq-dev \
 WORKDIR /var/www/html
 
 # https://github.com/backdrop/backdrop/releases
-ENV BACKDROP_VERSION 1.17.3
-ENV BACKDROP_MD5 907ae2978936d525626dd4c981afd0d2
+ENV BACKDROP_VERSION 1.21.3
+ENV BACKDROP_MD5 a93fe043630a617f6ae0977aaae3e919
 
 RUN curl -fSL "https://github.com/backdrop/backdrop/archive/${BACKDROP_VERSION}.tar.gz" -o backdrop.tar.gz \
 	&& echo "${BACKDROP_MD5} *backdrop.tar.gz" | md5sum -c - \
