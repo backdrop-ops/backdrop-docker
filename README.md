@@ -99,14 +99,12 @@ Please see [the Docker installation documentation](https://docs.docker.com/insta
 # User Feedback
 
 ## Documentation
-
- > @todo: link to backdrop site?
+- [Backdrop CMS Documentation](https://docs.backdropcms.org/)
 
 ## Issues
-
- > @todo: link to backdrop site?
+- [Backdrop CMS Core Issue Queue](https://github.com/backdrop/backdrop-issues/issues)
+- [Backdrop CMS Contrib at Github.com](https://github.com/backdrop-contrib) - Each contrib project has it's own issue queue.
 
 ## Contributing
-
- >  @todo: link to backdrop site?
+- [Contribute to the Backdrop CMS Open Source Project](https://docs.backdropcms.org/documentation/contributors-guide)
 
