@@ -1,5 +1,5 @@
 # from https://backdropcms.org/requirements
-FROM php:8.1-apache
+FROM python:3.11.4-bullseye
 
 RUN a2enmod rewrite
 
