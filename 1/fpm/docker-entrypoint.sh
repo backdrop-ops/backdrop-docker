@@ -39,7 +39,7 @@ if [[ "$1" == apache2* ]] || [ "$1" == php-fpm ]; then
   fi
 
   # lets construct our BACKDROP_SETTINGS and pass them into apache or fpm
-  export BACKDROP_SETTINGS="{\"databases\":{\"default\":{\"default\":{\"host\":\"database\",\"port\":$BACKDROP_DB_PORT,\"username\":\"$BACKDROP_DB_USER\",\"password\":\"$BACKDROP_DB_PASSWORD\",\"database\":\"$BACKDROP_DB_NAME\",\"driver\":\"$BACKDROP_DB_DRIVER\"}}}}"
+  export BACKDROP_SETTINGS="{\"databases\":{\"default\":{\"default\":{\"host\":\"$BACKDROP_DB_HOST\",\"port\":$BACKDROP_DB_PORT,\"username\":\"$BACKDROP_DB_USER\",\"password\":\"$BACKDROP_DB_PASSWORD\",\"database\":\"$BACKDROP_DB_NAME\",\"driver\":\"$BACKDROP_DB_DRIVER\"}}}}"
   if [[ "$1" == apache2* ]]; then
     echo "PassEnv BACKDROP_SETTINGS" > /etc/apache2/conf-enabled/backdrop.conf
   elif [[ "$1" == php-fpm* ]]; then
