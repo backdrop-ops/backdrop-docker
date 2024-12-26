@@ -11,15 +11,11 @@ https://github.com/docker-library/official-images/blob/master/library/backdrop
 
 # What is Backdrop?
 
-Backdrop is a comprehensive Content Management System intended to address the specific requirements of Small & Medium Sized (SME) businesses, Non-Governmental Organizations (NGO), Non-Profit Organizations (NPO) and Educational Institutions.
+Backdrop is a comprehensive Content Management System (CMS) intended to address the specific requirements of Small & Medium Sized Enterprises (SME), Non-Governmental Organizations (NGO), Non-Profit Organizations (NPO) and Educational Institutions (EI).  Backdrop started off as a "fork" of the immensely popular Drupal 7 CMS.  Its genesis was the introduction of Drupal 8 and the realization that Drupal versions were becoming increasingly burdensome, costly and difficult to design, implement, maintain and upgrade.  In response, Backdrop CMS was launched.  One of the key goals of Backdrop was to maintain the highest possible degree of compatibility with Drupal 7, because its ecosystem included 150,000+ contributed themes and modules.  It has remained true to that original goal, and it can credibly claim to be THE fastest, easiest and cheapest "sidegrade" from Drupal 7, with some conversions taking a fraction of the time it would take to move to a more modern version of Drupal or a different CMS altogether.  Backdrop has also been continuously improved for over a decade, and is compatible with the latest technologies.  For those with an existing or new website requirement, Backdrop offers a complete operating environment, with new functionality being released regularly.  
 
-Backdrop started off as a "fork" of the immensely popular Drupal 7 CMS.  Its genesis was the fact that later versions of Drupal were becoming increasingly burdensome, costly and difficult to design, implement, maintain and upgrade.
+For those who wish to move away from Drupal 7, or launch a new website, Backdrop is a great option and worth evaluating.
 
-In response, Backdrop CMS was launched.  One of its key goals is to maintain the highest possible degree of compatibility with Drupal 7, because its ecosystem included 150,000+ contributed themes and modules.
-
-Backdrop has remained true to that original goal, and can credibly claim to be THE fastest, easiest and cheapest "sidegrade" from Drupal 7.  It has also been continuously improved for over a decade.
-
-Backdrop offers a complete operating environment, with new modules being released regularly.  For those who wish to move away from Drupal 7, or launch a new website, Backdrop is a great option.
+This is why Backdrop offers a Docker image.
 
 ![logo](https://backdropcms.org/files/inline-images/Backdrop-Logo-Vertical_0.png)
 
