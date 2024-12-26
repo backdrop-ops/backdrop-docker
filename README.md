@@ -11,7 +11,15 @@ https://github.com/docker-library/official-images/blob/master/library/backdrop
 
 # What is Backdrop?
 
-The comprehensive CMS for small to medium sized businesses and non-profits.
+Backdrop is a comprehensive Content Management System intended to address the specific requirements of Small & Medium Sized (SME) businesses, Non-Governmental Organizations (NGO), Non-Profit Organizations (NPO) and Educational Institutions.
+
+Backdrop started off as a "fork" of the immensely popular Drupal 7 CMS.  Its genesis was the fact that later versions of Drupal were becoming increasingly burdensome, costly and difficult to design, implement, maintain and upgrade.
+
+In response, Backdrop CMS was launched.  One of its key goals is to maintain the highest possible degree of compatibility with Drupal 7, because its ecosystem included 150,000+ contributed themes and modules.
+
+Backdrop has remained true to that original goal, and can credibly claim to be THE fastest, easiest and cheapest "sidegrade" from Drupal 7.  It has also been continuously improved for over a decade.
+
+Backdrop offers a complete operating environment, with new modules being released regularly.  For those who wish to move away from Drupal 7, or launch a new website, Backdrop is a great option.
 
 ![logo](https://backdropcms.org/files/inline-images/Backdrop-Logo-Vertical_0.png)
 
