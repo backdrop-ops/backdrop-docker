@@ -1,5 +1,5 @@
 # from https://backdropcms.org/requirements
-FROM php:8.1-apache
+FROM php:8.3-apache
 
 RUN a2enmod rewrite
 
@@ -12,17 +12,19 @@ RUN apt-get update && apt-get install -y --no-install-recommends libzip-dev libo
 WORKDIR /var/www/html
 
 # https://github.com/backdrop/backdrop/releases
-ENV BACKDROP_VERSION 1.26.1
-ENV BACKDROP_MD5 0a6fad09190b1f8da266f586955454a2
+ENV BACKDROP_VERSION=1.29.2
+ENV BACKDROP_MD5=dcb27feb72d78f1f14120d4c9a6bc70b
 
-RUN curl -fSL "https://github.com/backdrop/backdrop/archive/${BACKDROP_VERSION}.tar.gz" -o backdrop.tar.gz \
+RUN curl -fSL "https://github.com/backdrop/backdrop/archive/refs/tags/${BACKDROP_VERSION}.tar.gz" -o backdrop.tar.gz \
   && echo "${BACKDROP_MD5} *backdrop.tar.gz" | md5sum -c - \
   && tar -xz --strip-components=1 -f backdrop.tar.gz \
   && rm backdrop.tar.gz \
-  && chown -R www-data:www-data sites
+  && chown -R www-data:www-data sites files
 
 # Add custom entrypoint to set BACKDROP_SETTINGS correctly
 COPY docker-entrypoint.sh /entrypoint.sh
+
+EXPOSE 80
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["apache2-foreground"]
