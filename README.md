@@ -4,8 +4,8 @@ https://github.com/docker-library/official-images/blob/master/library/backdrop
 
 # Supported tags and respective `Dockerfile` links
 
-- [`1.26.1-apache`, `1.26.1`, `1-apache`, `1` (*1/apache/Dockerfile*)](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
-- [`1.26.1-fpm`, `1-fpm` (*1/fpm/Dockerfile*)](https://github.com/kalabox/backdrop-docker/blob/master/1/fpm/Dockerfile)
+- [`1.29.2-apache`, `1.29.2`, `1-apache`, `1` (*1/apache/Dockerfile*)](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
+- [`1.29.2-fpm`, `1-fpm` (*1/fpm/Dockerfile*)](https://github.com/kalabox/backdrop-docker/blob/master/1/fpm/Dockerfile)
 
 [![](https://badge.imagelayers.io/kalabox/backdrop:latest.svg)](https://imagelayers.io/?images=kalabox/backdrop:latest 'Get your own badge on imagelayers.io')
 
