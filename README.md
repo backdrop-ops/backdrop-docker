@@ -24,7 +24,7 @@ This is why Backdrop offers a Docker image.
 The basic pattern for starting a `backdrop` instance is:
 
 ```console
-$ docker run --name some-backdrop --link some-mysql:mysql -d backdrop/backdrop
+docker run --name some-backdrop --link some-mysql:mysql -d backdrop/backdrop
 ```
 
 The following environment variables are also honored for configuring your Backdrop CMS instance:
@@ -41,7 +41,7 @@ The `BACKDROP_DB_NAME` **must already exist** on the given MySQL server. Check o
 If you'd like to be able to access the instance from the host without the container's IP, standard port mappings can be used:
 
 ```console
-$ docker run --name some-backdrop --link some-mysql:mysql -p 8080:80 -d backdrop/backdrop
+docker run --name some-backdrop --link some-mysql:mysql -p 8080:80 -d backdrop/backdrop
 ```
 
 Then, access it via `http://localhost:8080` or `http://host-ip:8080` in a browser.
@@ -49,7 +49,7 @@ Then, access it via `http://localhost:8080` or `http://host-ip:8080` in a browse
 If you'd like to use an external database instead of a linked `mysql` container, specify the hostname and port with `BACKDROP_DB_HOST`/`BACKDROP_DB_PORT` along with the password in `BACKDROP_DB_PASSWORD` and the username in `BACKDROP_DB_USER` (if it is something other than `root`):
 
 ```console
-$ docker run --name some-backdrop \
+docker run --name some-backdrop \
   -e BACKDROP_DB_HOST=10.1.2.3 \
   -e BACKDROP_DB_PORT=10432 \
   -e BACKDROP_DB_USER=... \
@@ -95,14 +95,6 @@ The following Docker Hub features can help with the task of keeping your depende
 # License
 
 View [license information](https://www.drupal.org/licensing/faq) for the software contained in this image.
-
-# Supported Docker versions
-
-This image is officially supported on Docker version 1.10.3.
-
-Support for older versions (down to 1.6) is provided on a best-effort basis.
-
-Please see [the Docker installation documentation](https://docs.docker.com/installation/) for details on how to upgrade your Docker daemon.
 
 # User Feedback
 
