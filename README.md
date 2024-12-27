@@ -1,6 +1,6 @@
 # What is Backdrop?
 
-_**TL;DR:  Backdrop is an exciting and promising way forward for organizations seeking a means of leaving legacy Drupal behind in a way that preserves their Drupal-related investments in terms of time, energy, people and money.**_
+_**TL;DR:  Backdrop is an exciting and promising way forward for organizations seeking a means of leaving legacy Drupal behind in a way that preserves their Drupal-related investments of time, energy, people and money.**_
 
 Backdrop is a web application development framework most commonly configured as a Content Management System (CMS) for use by:
 
