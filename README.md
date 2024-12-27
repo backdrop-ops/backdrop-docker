@@ -137,7 +137,7 @@ The above `compose.yml` specifically references the `backdrop/backdrop` docker i
 
 This is just an example to help get you started.  Once you are familiar with how to "spin up" a docker image, there is nothing to stop you from trying out different docker images to find the one you like the best.  A complete listing of all available backdrop docker images is available at the end of this document.
 
-# Backdrop
+# About Backdrop
 ![logo](https://backdropcms.org/files/inline-images/Backdrop-Logo-Vertical_0.png)
 
 # License
