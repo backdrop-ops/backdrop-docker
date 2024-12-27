@@ -226,5 +226,5 @@ docker run --name some-backdrop \
 [`1.29.2-fpm`](https://github.com/kalabox/backdrop-docker/blob/master/1/fpm/Dockerfile)
 
 ## 1.29.6
-[`1.29.6-apache`]()
-[`1.29.6-fpm`]()
+`1.29.6-apache`
+`1.29.6-fpm`
