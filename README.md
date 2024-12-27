@@ -28,14 +28,26 @@ _"A software platform that allows you to build, test, and deploy applications qu
 # What are the Backdrop Docker Official Image(s)?
 The Backdrop Docker Official Images is a collection of docker images intended to enable almost anyone to quickly and easily install Backdrop for evaluation purposes.  The intent of this documentation, along with the Backdrop Docker Official Images collection, is to empower regular people to be able to install Docker and use it to "spin up" an evaluation instance of Backdrop with a minimal investment of their time and money.
 
+# Backdrop Current Edition (latest)
+The current edition of Backdrop is **1.29.2**.
+
+## MAIN
+The **MAIN** edition of Backdrop is the one that is downloaded by Docker when nothing more specific is provided, or when special or reserved tags are used (`latest` or `backdrop`).  This is the **DEFAULT** version of Backdrop that Docker installs.
+
+### ALTERNATIVE
+The ALTERNATIVE edition(s) of Backdrop must be speci
+
+_(a complete list of MAIN & ALTERNATIVE Backdrop editions, including legacy editions, editions appears at the end of this document)_
+
 # Tags
+
 ## Apache 2 (apache)
 
 [`latest`](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
 [`backdrop`](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
 [`1.29.2-apache`](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
 [`1.29.2`](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
-[`1-apache`](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)te 
+[`1-apache`](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
 [`1`](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
 
 Source [*Dockerfile*](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
