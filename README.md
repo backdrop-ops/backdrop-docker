@@ -216,7 +216,8 @@ docker run --name some-backdrop \
   -d backdrop/backdrop
 ```
 
-# Backdrop Dockerfile archive
+# Backdrop Dockerfile archive 
+_([please review release notes before deploying](https://github.com/backdrop/backdrop/releases))_
 ## 1.30.0 (coming Januaray 2025)
 `1.30.2-apache`
 `1.30.2-fpm`
@@ -225,6 +226,6 @@ docker run --name some-backdrop \
 [`1.29.2-apache`](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
 [`1.29.2-fpm`](https://github.com/kalabox/backdrop-docker/blob/master/1/fpm/Dockerfile)
 
-## 1.29.6
-`1.29.6-apache`
-`1.29.6-fpm`
+## 1.29.1
+`1.29.1-apache`
+`1.29.1-fpm`
