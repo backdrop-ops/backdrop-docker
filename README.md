@@ -61,21 +61,24 @@ In this case we will create a directory named `backdrop-eval` to help assemble t
 In the `backdrop-eval` directory, create `compose.yml` file with the following contents:
 
 ```yaml
-backdrop:
-  image: backdrop/backdrop
-  links:
-    - db:mysql
-  ports:
-    - 8080:80
+services:
+  backdrop:
+    build:
+      context: ./1/apache
+    ports:
+      - 8088:80
+    environment:
+      BACKDROP_DB_HOST: db
+      BACKDROP_DB_USER: backdrop
+      BACKDROP_DB_PASSWORD: backdrop
 
-db:
-  image: mysql
-  environment:
-    MYSQL_USER: backdrop
-    MYSQL_PASSWORD: backdrop
-    MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-    MYSQL_DATABASE: backdrop
-
+  db:
+    image: mysql
+    environment:
+      MYSQL_USER: backdrop
+      MYSQL_PASSWORD: backdrop
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_DATABASE: backdrop
 ```
 
 ## Step 4:  Launch docker in such a way that it processes the startup file
@@ -113,7 +116,7 @@ Validating that backdrop indeed constructed a valid runtime environment may be a
 docker ps
 ```
 
-The resulting listing should include TWO (2) docker containers, one for the database server (mysql), one for the CMS (backdrop).
+The resulting listing should include TWO (2) docker containers, one for the database server (db), one for the CMS (backdrop).
 
 ## How to access the docker-based backdrop runtime environment
 Accessing the docker container may be accomplished with the following command:
