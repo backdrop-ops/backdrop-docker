@@ -25,8 +25,8 @@ According to Amazon, Docker is:
 
 _"A software platform that allows you to build, test, and deploy applications quickly. Docker packages software into standardized units called containers that have everything the software needs to run including libraries, system tools, code, and runtime."_
 
-# What are Backdrop Docker Official Image(s)?
-Backdrop Docker Official Images is a collection of Docker images intended to enable almost anyone to be able to install and evaluate Backdrop in a fast and cost-effective manner.  Working in concert with this documentation, this collection is designed to empower even "slightly" technical people with the ability to "spin up" a Backdrop instance with a minimal investment in time, money and effort.
+# What are the Backdrop Docker Official Image(s)?
+The Backdrop Docker Official Images is a collection of docker images intended to enable almost anyone to quickly and easily install Backdrop for evaluation purposes.  The intent of this documentation, along with the Backdrop Docker Official Images collection, is to empower regular people to be able to install Docker and use it to "spin up" an evaluation instance of Backdrop with a minimal investment of their time and money.
 
 # Tags
 ## Apache 2 (apache)
@@ -35,7 +35,7 @@ Backdrop Docker Official Images is a collection of Docker images intended to ena
 [`backdrop`](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
 [`1.29.2-apache`](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
 [`1.29.2`](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
-[`1-apache`](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
+[`1-apache`](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)te 
 [`1`](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
 
 Source [*Dockerfile*](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
