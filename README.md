@@ -1,3 +1,6 @@
+# What is this README file?
+The intent of this README file is to explain how Docker can be used to enable regular people to evaluate Backdrop .
+
 # What is Backdrop?
 
 _**TL;DR:  Backdrop is an exciting and promising way forward for organizations seeking a means of leaving legacy Drupal behind in a way that preserves their Drupal-related investments of time, energy, people and money.**_
@@ -10,34 +13,32 @@ Backdrop is a web application development framework most commonly configured as 
 - Non-Profit Organizations (NPO)
 - Educational Institutions (EI).  
 
-Backdrop started off as a "fork" of an immensely popular Drupal 7.  The genesis of the Backdrop CMS Project was the release of Drupal 8.  That release (and every subsequent Drupal release thereafter) introduced an explosion in uncertainty, complexity and cost.  Some of the key goals of Backdrop are predictability, reliability, controlled complexity and maximum compatibility with the code base of Drupal 7 - especially in terms of compatibility with Drupal 7 contributed modules and themes.  There are over 16,000+ contributed Drupal 7 modules and themes, representing a near-infinite range of solutions. 
+Backdrop started off as a "fork" of an immensely popular Content Management System (CMS) named Drupal 7.  The genesis of Backdrop was the release of Drupal 8, which introduced an explosion of uncertainty, complexity and cost. That release (and every subsequent Drupal release thereafter) has a similar effect.  As a consequence of this, among the most important key goals of Backdrop are predictability, reliability, controlled complexity and maximum compatibility with the existing code base of Drupal 7 and its contributed modules and themes.  There are over 16,000+ contributed Drupal 7 modules and themes, representing a near-infinite range of solutions.
 
-Since 2013, Backdrop has remained true to its goals.  Now, a Backdrop conversion can take a small fraction of the time and expense involved with migrating to a different CMS (usually Wordpress), using a cloud-based provider (WIX or Shopify) or even upgrading to the latest version of Drupal.  Many organizations have already leveraged the power of Backdrop to move away from legacy Drupal, especially Drupal 7, in a way that they feel is the fastest, easiest and least expensive way possible.  
+A Backdrop conversion can take a small fraction of the time and expense involved with migrating to a different CMS (Wordpress), going to cloud-based providers (WIX or Shopify) or even upgrading to a newer version of Drupal.  To date, hundreds of  organizations have leveraged the power of Backdrop to move off of Drupal (especially Drupal 7) and on to Backdrop in a manner that they feel is fastest, easiest and least expensive way possible.
 
-The Backdrop Project was started over a decade ago.  To date, its story is marked by a string of successes:  It is being continually improved.  It offers the latest technologies.  New versions of Backdrop are released in a regular and methodical way.  Backdrop releases are supported for a very long time.  New (and converted) Backdrop modules and themes are arriving ever more frequently.  It has a dedicated, mature, experienced and highly professional project team.
-
-The latest edition of Backdrop is **1.29.2**.
-
-_(a full list of every docker image available for Backdrop, including legacy and alternative versions, appears at the end of this document)_
+Since 2013, Backdrop has remained true to its key goals, and its history is marked by a string of increasingly significant achievements.  Backdrop is always being continually improved.  Backdrop incorporates the latest technologies.  While minor released of Backdrop are released every six months, major releases are supported for a very, very long time.  Converted and new Backdrop contributed modules are arriving ever more frequently.  Finally, Backdrop has a dedicated, mature, experienced and highly professional project team.
 
 # What is Docker?
-According to Amazon, Docker is:
+Docker is a software platform that performs two important functions.  First, it enables the packaging of a piece of software into a standardized unit called an image that contains everything a software needs to run.  Second, it provides an execution environment, or container, into which the image may be loaded, thus making the software accessible.
 
-_"A software platform that allows you to build, test, and deploy applications quickly. Docker packages software into standardized units called containers that have everything the software needs to run including libraries, system tools, code, and runtime."_
+## What is a Dockerfile?
+A Dockerfile is a human-redable script containing all the commands needed to create a Docker image.
 
-# What are the Backdrop Docker Official Image(s)?
-The Backdrop Docker Official Images is a collection of docker images intended to enable almost anyone to quickly and easily install Backdrop for evaluation purposes.  The intent of this documentation, along with the Backdrop Docker Official Images collection, is to empower regular people to be able to install Docker and use it to "spin up" an evaluation instance of Backdrop with a minimal investment of their time and money.
+## What is a Docker Image?
+A Docker image is a runtime environment that the docker process loads to quickly and easily deliver a runtime environment for one or more applications or services.
 
-# Backdrop Current Edition (latest)
-The current edition of Backdrop is **1.29.2**.
+## What is a Backdrop Docker Official Image?
 
-## MAIN
+The Backdrop Docker Official Image collection is an assortment of docker images prepared to help someone quickly and easily install Backdrop for evaluation purposes.
+
+### MAIN Image
 The **MAIN** edition of Backdrop is the one that is downloaded by Docker when nothing more specific is provided, or when special or reserved tags are used (`latest` or `backdrop`).  This is the **DEFAULT** version of Backdrop that Docker installs.
 
-### ALTERNATIVE
-The ALTERNATIVE edition(s) of Backdrop must be speci
+### ALTERNATIVE Images
+ALTERNATIVE edition(s) of Backdrop must be fully specified to be loaded by Docker.
 
-_(a complete list of MAIN & ALTERNATIVE Backdrop editions, including legacy editions, editions appears at the end of this document)_
+[Click here to see a complete list of all available Official Docker Images](https://hub.docker.com/_/backdrop/tags)
 
 # Tags
 
@@ -58,13 +59,13 @@ Source [*Dockerfile*](https://github.com/kalabox/backdrop-docker/blob/master/1/a
 
 Source [*Dockerfile*](https://github.com/kalabox/backdrop-docker/blob/master/1/fpm/Dockerfile)
 
-# Use
-The fastest and easiest way to "spin up" any of the above-mentioned Backdrop containers with docker is to:
+# Installation
+The fastest and easiest way to "spin up" a Backdrop instance in a container is to:
 
  1)  Install docker on a host system
- 2)  Create a named directory to marshal docker-related Backdrop assets
- 3)  Create a docker startup file that references a specific Backdrop docker image
- 4)  Launch docker in such a way that it processes the startup file
+ 2)  Create a named directory to hold docker-related assets
+ 3)  Create a docker startup file referencing a Backdrop docker image
+ 4)  Launch docker in such a way that it knows to process the startup file
 
 ## Step 1:  Install docker on a host system
 [Docker's installation instructions for Windows, Mac and Linux](https://www.docker.com/get-started)
@@ -100,7 +101,7 @@ services:
       MYSQL_DATABASE: backdrop
 ```
 
-## Step 4:  Launch docker in such a way that it processes the startup file
+## Step 4:  Launch docker in such a way that it knows to process the startup file
 While in the `docker-eval` directory, enter the following command:
 
 `docker compose up`
@@ -119,8 +120,8 @@ If the web browser is running on the same machine as docker, the Backdrop instal
 
 `http://localhost:8080` 
 
-### 'compose.yml` Embedded Credentials
-The credentials embedded in the `compose.yml` will be required in the Backdrop installation routine:
+### Backdrop installation credentials
+Don't forget that the Backdrop installation process will need the following information to proceed in the installation process:
 
 ```
 User:      backdrop
