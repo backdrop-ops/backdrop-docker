@@ -16,10 +16,17 @@ Since 2013, Backdrop has remained true to its goals.  Now, a Backdrop conversion
 
 The Backdrop Project was started over a decade ago.  To date, its story is marked by a string of successes:  It is being continually improved.  It offers the latest technologies.  New versions of Backdrop are released in a regular and methodical way.  Backdrop releases are supported for a very long time.  New (and converted) Backdrop modules and themes are arriving ever more frequently.  It has a dedicated, mature, experienced and highly professional project team.
 
-# Latest edition
-The latest edition of Backdrop is **1.29.2**
+The latest edition of Backdrop is **1.29.2**.
 
 _(a full list of every docker image available for Backdrop, including legacy and alternative versions, appears at the end of this document)_
+
+# What is Docker?
+According to Amazon, Docker is:
+
+_"A software platform that allows you to build, test, and deploy applications quickly. Docker packages software into standardized units called containers that have everything the software needs to run including libraries, system tools, code, and runtime."_
+
+# What are Backdrop Docker Official Image(s)?
+Backdrop Docker Official Images is a collection of Docker images intended to enable almost anyone to be able to install and evaluate Backdrop in a fast and cost-effective manner.  Working in concert with this documentation, this collection is designed to empower even "slightly" technical people with the ability to "spin up" a Backdrop instance with a minimal investment in time, money and effort.
 
 # Tags
 ## Apache 2 (apache)
@@ -209,34 +216,15 @@ docker run --name some-backdrop \
   -d backdrop/backdrop
 ```
 
-# All available backdrop docker images
-## 1.30.0 (upcoming)
+# Backdrop Dockerfile archive
+## 1.30.0 (coming Januaray 2025)
+`1.30.2-apache`
+`1.30.2-fpm`
 
-### Apache 2 (apache)
-
-### FastCGI Process Manager (fpm)
-
-## 1.29.2 (latest)
-
-### Apache 2 (apache)
-
-[`latest`](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
-[`backdrop`](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
+## 1.29.2
 [`1.29.2-apache`](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
-[`1.29.2`](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
-[`1-apache`](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
-[`1`](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
-
-Source [*Dockerfile*](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
-  
-### FastCGI Process Manager (fpm)
 [`1.29.2-fpm`](https://github.com/kalabox/backdrop-docker/blob/master/1/fpm/Dockerfile)
-[`1-fpm`](https://github.com/kalabox/backdrop-docker/blob/master/1/fpm/Dockerfile)
-
-Source [*Dockerfile*](https://github.com/kalabox/backdrop-docker/blob/master/1/fpm/Dockerfile)
 
 ## 1.29.6
-
-### Apache 2 (apache)
-
-### FastCGI Process Manager (fpm)
+[`1.29.6-apache`]()
+[`1.29.6-fpm`]()
