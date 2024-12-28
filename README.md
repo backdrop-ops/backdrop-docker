@@ -59,24 +59,6 @@ The **MAIN** Docker image is the one that is installed by **DEFAULT** by Docker 
 
 [Click here to see a complete list of every available Backdrop Official Docker Image](https://hub.docker.com/_/backdrop/tags)
 
-# Tags
-
-## Apache 2 (apache)
-
-[`latest`](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
-[`backdrop`](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
-[`1.29.2-apache`](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
-[`1.29.2`](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
-[`1-apache`](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
-[`1`](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
-
-Source [*Dockerfile*](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
-  
-## FastCGI Process Manager (fpm)
-[`1.29.2-fpm`](https://github.com/kalabox/backdrop-docker/blob/master/1/fpm/Dockerfile)
-[`1-fpm`](https://github.com/kalabox/backdrop-docker/blob/master/1/fpm/Dockerfile)
-
-Source [*Dockerfile*](https://github.com/kalabox/backdrop-docker/blob/master/1/fpm/Dockerfile)
 
 # Installation
 The fastest and easiest way to "spin up" Backdrop in a Docker container is to:
