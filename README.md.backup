@@ -4,7 +4,7 @@ This README file attempts to explain in plain language how to deploy Backdrop CM
 
 _**TL;DR:  Backdrop is an exciting and promising way forward for organizations seeking a means of leaving legacy Drupal behind in such a way that existing investments in Drupal-related time, energy, people and money are not wasted or abandoned.**_
 
-Backdrop is a web application development framework frequenty deployed in the guise of a Content Management System (or "website") for:
+Backdrop is a web application development framework frequenty deployed in the guise of a Content Management System (or "website") for use by:
 
 - Primary, Secondary and Tertiary Educational Institutions
 - National, Regional and Municipal Governments
@@ -13,14 +13,17 @@ Backdrop is a web application development framework frequenty deployed in the gu
 - Non-Profit Organizations
 
 ## Guiding Principles
-Leading among the principles that help to guide the Backdrop ethos are compatibility, reliability, predictability and managed complexity.  The Backdrop principle of compatibility resulted in the creation of a "Drupal compatibility layer" within Backdrop, an important and highly useful development in its evolution.
+Among the leading principles that guide the Backdrop ethos are compatibility, reliability, predictability and managed complexity.  Other principles include humility, teamwork and dependability.
 
 ## History
-Backdrop started off as a "fork" of the immensely popular Drupal 7 Content Management System.  The genesis of the fork was the release of Drupal 8, which introduced an explosion of uncertainty, complexity and cost. Every subsequent Drupal release, until recently, has a similar impact, leaving the Drupal community confused and unhappy about what to do with their Drpual-based websites as they quickly evolved from "legacy" to "unsupported" status.  Today, more than 50% of all production Drupal websites are running on "unsupported" Drupal versions (5, 6, 7, 8, 9).  In fact, "unsupported" versions currently comprise the **majority** of present-day Drupal installations, with Drupal 7 representing about 1/3 of the total.
+Backdrop started off as a "fork" of the immensely popular Drupal 7 Content Management System.  The genesis of that event was the release of Drupal 8, which introduced an explosion of uncertainty, complexity and cost into the wider Drupal community. Every subsequent Drupal release, until recently, has a similar impact, leaving stakeholders confused and unhappy about what they should do with their Drpual-based websites as they rapidly devolved from "legacy" to "unsupported" status in the eyes of Drupal.  
+
+## Present Day Situation
+Many production Drupal websites are currently deployed on an "unsupported" version of Drupal (5, 6, 7, 8, 9).  In fact, "unsupported" websites currently comprise the **majority** of present-day Drupal deployments, with Drupal 7 representing over a third of the total number.
 
 
 ## Compatibility
-With only slight alterations, the vast majority of "unsupported" Drupal code is able to run in Backdrop.  This is especially true for Drupal 7 code, as it was the base product that Backdrop was derived from, and the version for which a compatibility layer was written in Backdrop.  Another reason for fostering a high degree of compatibility with Drupal 7 is pragmatic:  The Drupal 7 ecosystem is simply massive, with over 16,000 contributed modules and themes.  This staggering amount of innovation was the result of over a decade of distributed development by thousands of dedicated and loyal developers, agencies and companies that relied on Drupal 7 for their everyday livelihood.  The result is a collective body of work comprised of over 150,000 individual pieces of freely available intellectual property.  These assets range across every conceivable organizational model and business problem...and all of them are accessible via Backdrop.
+The Backdrop leading principle of compatibility resulted in the creation of a "Drupal compatibility layer" in Backdrop early on.  This important and highly useful development has become a "secret weapon" for Backdrop because, with only slight alteration, the vast majority of "unsupported" Drupal code is able to run in a supported version of Backdrop.  This is especially true for Drupal 7 code, as that was what Backdrop was derived from, and is the version of Drupal for which Backdrop offers the highest degree of compatibility.  Another reason why Backdrop selected Drupal 7 as its basis was pragmatic:  The Drupal 7 ecosystem is massive, with over 16,000 contributed modules and themes.  This staggering amount of innovation was the result of over a decade of distributed development by thousands of dedicated and loyal developers, agencies and companies that relied on Drupal 7 for their everyday livelihood.  The result of ths collective effort is a body of work comprised of over 150,000 individual pieces of freely available intellectual property that range across every conceivable organizational model and business problem...and all of them are available to Backdrop.
 
 ## Cost of Adoption
 Converting a Drupal website to Backdrop can take a fraction of the time and expense required to migrate to other CMS systems (Wordpress, Magento) or a cloud-based solution (WIX or Shopify).  Most notably, a Drupal to Backdrop conversion can be faster and cheaper than upgrading to a more recent version of Drupal - mostly because of how complicated modern versions of Drupal have become.  To date, hundreds of  organizations have opted to move to Backdrop because they concluded that it was the fastest, easiest and least expensive way forward for their organization.
