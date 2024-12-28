@@ -72,9 +72,9 @@ Source [*Dockerfile*](https://github.com/kalabox/backdrop-docker/blob/master/1/f
 The fastest and easiest way to "spin up" Backdrop in a Docker container is to:
 
  1)  Ensure Docker is installed
- 2)  Create directory to hold docker assets
+ 2)  Create a directory to hold docker assets
  3)  Create a docker startup file that references a Backdrop Docker Image
- 4)  Launch docker so that it knows to process the recently created startup file
+ 4)  Launch docker so that it knows to process the recently created docker startup file
 
 ## Step 1:  Ensure Docker is Installed
 [Click here to see Docker's installation instructions for Windows, Mac and Linux](https://www.docker.com/get-started)
@@ -129,7 +129,7 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
 ```
 
-## Step 4:  Launch docker in Such a Way That it Knows to Processes the Recently Created Startup File
+## Step 4:  Launch docker in Such a Way That it Knows to Processes the Recently Created Docker Startup File
 While in the `docker-eval` directory, enter the following command:
 
 ```
