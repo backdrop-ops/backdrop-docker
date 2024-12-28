@@ -2,7 +2,7 @@ This README file attempts to explain in plain language how to deploy Backdrop CM
 
 # What is Backdrop?
 
-_**TL;DR:  Backdrop is an exciting and promising way forward for organizations seeking a means of leaving legacy Drupal behind in such a way that existing investments in Drupal-related time, energy, people and money are not abandoned.**_
+_**TL;DR:  Backdrop is an exciting and promising way forward for organizations seeking a means of leaving legacy Drupal behind in such a way that existing investments in Drupal-related time, energy, people and money are not wasted or abandoned.**_
 
 Backdrop is a web application development framework frequenty deployed in the guise of a Content Management System (or "website") for:
 
