@@ -33,7 +33,9 @@ Converting a Drupal website to Backdrop can take a fraction of the time and expe
 Since 2013, Backdrop has remained true to its key principles.  Today, the Backdrop story is marked by a series of increasingly significant achievements.  Backdrop has always been continually improved, and keeps up to date with the latest developments in web technology and approaches, including DLT and AI.  Backdrop is upgraded in a predictable and methodical way, with planned updates occurring every six months.  Major releases of Backdrop have been (and will be) supported for an extremely long time.  New Backdrop functionality is arriving ever more frequently as more and more Drupal modules are converted.  Finally, Backdrop has a proven, dedicated, mature, experienced and highly professional project team.
 
 # What is Docker?
-Docker is an application that can significantly reduce the time, effort and cost of deploying software.  It can reduce the time needed to deploy an application by at least an order of magnitude.  Functionally speaking, Docker offers two main services:
+Docker is an application that can significantly reduce the time, effort and cost involved when deploying software.  It can dramatically reduce deployment time, often by an order of magnitude (hours to minutes, minutes to seconds).
+
+Functionally speaking, Docker offers two main services:
 
 - Docker provides a **build** environment that utilizes a Dockerfile to produce a Docker Image containing everything a target application might need to run.  The short name for a Docker Image is simply "image".
 
