@@ -38,7 +38,7 @@ services:
 
     image: backdrop:latest
 
-    name: backdrop
+    container_name: backdrop
 
     ports:
 
@@ -56,7 +56,7 @@ services:
 
     image: mysql:latest
 
-    name: mysql
+    container_name: mysql
 
     environment:
 
