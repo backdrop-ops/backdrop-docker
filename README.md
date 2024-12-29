@@ -3,8 +3,8 @@ This README explains in plain language how to deploy Backdrop CMS inside a Docke
 # Table of Contents
 
 1. [Installation](#installation)
-2. [What is Docker?](#what-is-docker?)
-3. [What is Backdrop?](#what-is-backdrop?)
+2. [About Docker](#about-docker)
+3. [About Backdrop?](#about-backdrop)
 
 
  Later sections discuss what Docker is and how it works, as well as the Backdro project in general
@@ -142,7 +142,11 @@ repository:image
 
 [Click here to see a complete list of every available Backdrop Official Docker Image](https://hub.docker.com/_/backdrop/tags)
 
-# What is Docker?
+# About Docker
+
+![logo](https://raw.githubusercontent.com/docker-library/docs/c350af05d3fac7b5c3f6327ac82fe4d990d8729c/docker/logo.png)
+
+## What is Docker?
 Docker is an application that can significantly reduce the time, effort and cost involved when deploying software.  It can dramatically reduce deployment time, often by an order of magnitude (hours to minutes, minutes to seconds).
 
 Functionally speaking, Docker offers two main services:
@@ -169,9 +173,10 @@ The **MAIN** Docker image is the one that is installed by **DEFAULT** by Docker 
 
 [Click here to see a complete list of every available Backdrop Official Docker Image](https://hub.docker.com/_/backdrop/tags)
 
-![logo](https://backdropcms.org/files/inline-images/Backdrop-Logo-Vertical_0.png)
+# About Backdrop
+![logo](https://backdropcms.org/files/inline-images/Backdrop-Logo-Horizontal_0.png)
 
-# What is Backdrop?
+## What is Backdrop?
 
 _**TL;DR:  Backdrop is an exciting and promising way forward for organizations seeking a means of leaving legacy Drupal behind in such a way that existing investments in Drupal-related time, energy, people and money are not wasted or abandoned.**_
 
