@@ -10,7 +10,7 @@ services:
       BACKDROP_DB_PASSWORD: backdrop
 
   mysql:
-    image: mysql
+    image: mysql:latest
     container_name: mysql
     environment:
       MYSQL_USER: backdrop
