@@ -4,7 +4,7 @@ This README explains in plain language how to deploy Backdrop CMS inside a Docke
 
 1. [Installation](#installation)
 2. [About Docker](#about-docker)
-3. [About Backdrop?](#about-backdrop)
+3. [About Backdrop](#about-backdrop)
 
 
  Later sections discuss what Docker is and how it works, as well as the Backdro project in general
