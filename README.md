@@ -1,10 +1,10 @@
-This README file attempts to explain in plain language how to deploy Backdrop CMS in a Docker container.  Further sections explore what Docker is (and how it works) and also what Backdrop is.
+This README explains in plain language how to deploy Backdrop CMS inside a Docker container.  Later sections explore what Docker is and what Backdrop is.
 
 # Table of Contents
 
-[Installation](#-installation)  
-[About Docker](#-about-docker)  
-[About Backdrop](#-about-backdrop)
+1. [Installation](#installation)
+2. [About Docker](#about-docker)
+3. [About Backdrop](#about-backdrop)
 
 
  Later sections discuss what Docker is and how it works, as well as the Backdro project in general
