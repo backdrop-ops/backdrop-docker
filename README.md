@@ -1,6 +1,6 @@
-This README explains in plain language how to deploy Backdrop CMS inside a Docker container.  
+This document explains how to deploy Backdrop CMS as a Docker container application.
 
-Later sections of this document explore what Docker is and also what Backdrop is.
+Later sections discuss what Docker is and what Backdrop is.
 
 # Table of Contents
 
@@ -9,17 +9,17 @@ Later sections of this document explore what Docker is and also what Backdrop is
 3. [About Backdrop](#about-backdrop)
 
 # Installation
-The fastest and easiest way to "spin up" Backdrop in a Docker container is to:
+The process of "spinning up" Backdrop as a Docker container application includes:
 
- 1)  Ensure Docker is installed
- 2)  Create a directory to hold docker assets
- 3)  Create a docker startup file that references a Backdrop Docker Image
- 4)  Launch docker so that it knows to process the recently created docker startup file
+ 1)  Ensuring Docker is installed
+ 2)  Creating a directory to hold docker related assets
+ 3)  Creating a new docker startup file referencing a Backdrop Docker Image
+ 4)  Launching docker in such a way that it processes the new docker startup file
 
 ## Step 1:  Ensure Docker is Installed
 [Click here to see Docker's installation instructions for Windows, Mac and Linux](https://www.docker.com/get-started)
 
-## Step 2:  Create a Directory to Hold Docker assets
+## Step 2:  Create a Directory to Hold Docker Related Assets
 Create a directory named `backdrop-eval` to hold any Backdrop-related Docker assets
 
 ```
@@ -28,8 +28,8 @@ md backdrop-eval
 cd backdrop-eval
 ```
 
-## Step 3:  Create a Docker Startup File that References a Backdrop Docker Image
-In the `backdrop-eval` directory, create `compose.yml` file with the following contents:
+## Step 3:  Create a New Docker Startup File Referencing a Backdrop Docker Image
+In the `backdrop-eval` directory, ensure that a `compose.yml` file exists, with the following contents:
 ```
 
 services:
@@ -69,7 +69,7 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
 ```
 
-## Step 4:  Launch docker in Such a Way That it Knows to Processes the Recently Created Docker Startup File
+## Step 4:  Launch docker in Such a Way That it Processes the New Docker Startup File
 While in the `docker-eval` directory, enter the following command:
 
 ```
@@ -96,7 +96,7 @@ _(where `{host-ip}` is the IP address of the machine running docker)_
 
 
 # Backdrop Installation - Database Credentials
-Don't forget that the Backdrop install requires the following database credentials to proceed:
+Don't forget that the Backdrop install process requires the following database credentials to move onward:
 
 ```
 User:      backdrop
