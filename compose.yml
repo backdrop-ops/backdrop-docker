@@ -1,0 +1,19 @@
+services:
+  backdrop:
+    image: backdrop:latest
+    container_name: backdrop
+    ports:
+      - 8088:80
+    environment:
+      BACKDROP_DB_HOST: mysql
+      BACKDROP_DB_USER: backdrop
+      BACKDROP_DB_PASSWORD: backdrop
+
+  mysql:
+    image: mysql
+    container_name: mysql
+    environment:
+      MYSQL_USER: backdrop
+      MYSQL_PASSWORD: backdrop
+      MYSQL_DATABASE: backdrop
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
