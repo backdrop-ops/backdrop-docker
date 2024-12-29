@@ -84,7 +84,9 @@ While in the `docker-eval` directory, enter the following command:
 docker compose up
 ```
 
-This command instructs docker to process the `compose.yml` file.  The screen should immediately begin to fill with startup messages as docker composes the Backdrop runtime environment.  After a minute or so, the pace of new messages should settle down, with just status messages being displayed.  At this point the Backdrop installation screen should be accessible via a web browser.
+This command instructs docker to process the `compose.yml` file in the current directory.
+
+The screen should immediately begin to fill with startup messages as docker composes the Backdrop runtime environment.  After a minute or so, the pace of new messages should settle down, with just status messages being displayed.  At this point the Backdrop installation screen should be accessible via a web browser.
 
 # How to Access Backdrop in a Local Docker Container
 If the web browser is running on **the same machine** as docker, Backdrop should be accessible at:
