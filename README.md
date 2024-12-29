@@ -3,8 +3,8 @@ This README explains in plain language how to deploy Backdrop CMS inside a Docke
 # Table of Contents
 
 1. [Installation](#installation)
-2. [About Docker](#about-docker)
-3. [About Backdrop](#about-backdrop)
+2. [What is Docker?](#what-is-docker?)
+3. [What is Backdrop?](#what-is-backdrop?)
 
 
  Later sections discuss what Docker is and how it works, as well as the Backdro project in general
@@ -171,7 +171,7 @@ The **MAIN** Docker image is the one that is installed by **DEFAULT** by Docker 
 
 ![logo](https://backdropcms.org/files/inline-images/Backdrop-Logo-Vertical_0.png)
 
-# About Backdrop
+# What is Backdrop?
 
 _**TL;DR:  Backdrop is an exciting and promising way forward for organizations seeking a means of leaving legacy Drupal behind in such a way that existing investments in Drupal-related time, energy, people and money are not wasted or abandoned.**_
 
