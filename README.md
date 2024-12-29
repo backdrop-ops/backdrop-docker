@@ -8,9 +8,6 @@ Later sections of this document explore what Docker is and also what Backdrop is
 2. [About Docker](#about-docker)
 3. [About Backdrop](#about-backdrop)
 
-
- Later sections discuss what Docker is and how it works, as well as the Backdro project in general
-
 # Installation
 The fastest and easiest way to "spin up" Backdrop in a Docker container is to:
 
