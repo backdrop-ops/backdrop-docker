@@ -5,7 +5,9 @@
 3. [About Backdrop](#about-backdrop)
 
 # Installation
-This document explains how to deploy Backdrop CMS as a Docker container application.  The process of "spinning up" Backdrop as a Docker container application involves:
+This document explains how to deploy Backdrop CMS as a Docker container application.  
+
+The process of "spinning up" Backdrop as a Docker container application involves:
 
  1)  Ensuring Docker is installed on the host machine
  2)  Creating a named directory to hold Docker configuration file(s)
