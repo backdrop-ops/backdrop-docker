@@ -1,7 +1,3 @@
-This document explains how to deploy Backdrop CMS as a Docker container application.
-
-Later sections discuss what Docker is and what Backdrop is.
-
 # Table of Contents
 
 1. [Installation](#installation)
@@ -9,27 +5,37 @@ Later sections discuss what Docker is and what Backdrop is.
 3. [About Backdrop](#about-backdrop)
 
 # Installation
-The process of "spinning up" Backdrop as a Docker container application includes:
+This document explains how to deploy Backdrop CMS as a Docker container application.  The process of "spinning up" Backdrop as a Docker container application involves:
 
- 1)  Ensuring Docker is installed
- 2)  Creating a directory to hold docker related assets
+ 1)  Ensuring Docker is installed on the host machine
+ 2)  Creating a named directory to hold Docker configuration file(s)
  3)  Creating a new docker startup file referencing a Backdrop Docker Image
  4)  Launching docker in such a way that it processes the new docker startup file
 
-## Step 1:  Ensure Docker is Installed
+## Step 1:  Ensure Docker is Installed on the Host Machine
 [Click here to see Docker's installation instructions for Windows, Mac and Linux](https://www.docker.com/get-started)
 
-## Step 2:  Create a Directory to Hold Docker Related Assets
-Create a directory named `backdrop-eval` to hold any Backdrop-related Docker assets
+The following example checks for the existence of Docker on a Linux host:
 
 ```
-md backdrop-eval
+docker -v
+Docker version 27.4.1, build b9d17ea
+```
 
-cd backdrop-eval
+## Step 2:  Create a Named Directory to Hold Docker Configuration File(s)
+The following example creates a directory named `backdrop-eval` for the purpose of holding Docker configuration file(s) on a Linux host
+
+```
+md /var/www/backdrop-eval
+
+cd /var/www/backdrop-eval
 ```
 
 ## Step 3:  Create a New Docker Startup File Referencing a Backdrop Docker Image
-In the `backdrop-eval` directory, ensure that a `compose.yml` file exists, with the following contents:
+Docker usually requires configuration information to be able to successfully "spin up" an image.  This is especially true in the case of Backdrop, because **two** containers are involved; MySQl and Backdrop.  Backdrop requires the availability of a MySQL server in order to work.  Docker accommodates this somewhat complicated situation by way of the `compose.yml` file, which contains all of the custom settings needed to help Docker set up the two containers, and get them to interoperate.  
+
+The following example `/var/www/backdrop-eval/compose.yml` file ensures that the Backdrop Docker image launches correctly:
+
 ```
 
 services:
