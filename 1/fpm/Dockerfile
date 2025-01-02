@@ -22,7 +22,5 @@ RUN curl -fSL "https://github.com/backdrop/backdrop/archive/${BACKDROP_VERSION}.
 # Add custom entrypoint to set BACKDROP_SETTINGS correctly
 COPY docker-entrypoint.sh /entrypoint.sh
 
-EXPOSE 80
-
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["php-fpm"]
