@@ -1,20 +1,25 @@
 # Table of Contents
 
-1. [Installation](#installation)
+1. [Launch Backdrop using Docker](#launch-backdrop-using-docker)
 2. [About Docker](#about-docker)
 3. [About Backdrop](#about-backdrop)
 
-# Installation
-This document explains how to deploy Backdrop CMS as a Docker container application.  
+# Launch Backdrop using Docker
+
+> [!TIP]
+> You **do not need** to clone this repository in order to launch Backdrop using Docker.
+
+This section explains how to launch Backdrop CMS as a Docker container application.
 
 The process of "spinning up" Backdrop as a Docker container application involves:
 
  1)  Ensuring Docker is installed on the host machine
  2)  Creating a named directory to hold Docker configuration file(s)
- 3)  Creating a new Docker startup file (also called: a _Docker Compose_ file) referencing a Backdrop Docker Image
+ 3)  Creating a new Docker startup file (usually called: a _Docker Compose_ file) referencing a Backdrop Docker Image
  4)  Launching Docker in such a way that it processes the new Docker startup file (using the command `docker compose`)
 
 ## Step 1: Ensure Docker is Installed on the Host Machine
+
 [Click here to see Docker's installation instructions for Windows, Mac and Linux](https://www.docker.com/get-started)
 
 The following example checks for the existence of Docker on a Linux host:
@@ -34,6 +39,7 @@ cd backdrop-eval
 ```
 
 ## Step 3: Create a New Docker Startup (i.e. _Docker compose_) File Referencing a Backdrop Docker Image
+
 Docker offers a way to launch docker images that need to work together as an application. Such files are called _Docker compose_ files and are usually used when more than one Docker image is needed by the application. In the case of Backdrop, it is not sufficient to run the Backdrop Docker image which contains an Apache PHP application. Additionally, a MySQL database server is also needed. Hence, to "spin up" the Backdrop application (which involves running these two images), a Docker compose file is conveniently used.
 
 This is the `compose.yml` file, which contains all the settings needed to help Docker set up ad run the two containers, in a manner that allows them to interoperate as an application.
@@ -137,12 +143,37 @@ services:
     image: {repository}/{image}:{tag}
 ```
 
-The image specifier is made up of 3 parts: a `{repository}`, `{image}` and `{tag}`. When `{repository}` is omitted, the format becomes `{image}:{tag}`. When the `{tag}` is omitted, this simply becomes `{image}`.
+The image specifier is made up of the following parts:
+| Part | Mandatory? | Default Value | Description |
+|------|------------|---------------|-------------|
+| `{repository}` | No | `docker.io` | is the URL at which a Docker image repository is serving a catalogue/collection of Docker images. When omitted, this defaults to [Docker Hub](https://hub.docker.com/). |
+| `{image}` | Yes | - | is the name of the Docker image on the Docker repository. |
+| `{tag}` | No | `latest` | is a variation of the image. When omitted, it defaults to "latest" (also called [the default image](#what-is-a-default-docker-image)). |
 
 > [!NOTE]  
-> The `{repository}` part above is omitted when the source of the image is [Docker Hub](https://hub.docker.com/). The `{tag}` is omitted when the tag desired is "latest".
+> Depending on which parts are stated and which ones are omitted, you can encounter one of a few image specifier forms such as `{repository}/{image}`, `{image}:{tag}`, `{image}`, or `{repository}/{tag}`.
 
-[Click here to see a list of available Backdrop Official-Docker-Image tags](https://hub.docker.com/_/backdrop/tags)
+To view all the tags associated with the [official Backdrop image](#what-is-a-backdrop-docker-official-image) on Docker Hub, you can [click here](https://hub.docker.com/_/backdrop/tags).
+
+### Building and Using Your Modified Backdrop Docker Image
+
+Instead of using an image specifier in the `image` field in `compose.yml`. It is possible to point to a local directory containining a [Dockerfile](#what-is-a-dockerfile), as follows:
+
+```
+services:
+  backdrop:
+    image:
+      context: ./1/apache
+```
+
+In this case, the `docker compose` command would search the current folder (the folder in which the `compose.yml` file resides) for a subfolder named `1`, in which another subfolder `apache` exists, and look for a file called `Dockerfile` there (with a capitalized `D`). Inside of this file, are instructions on how to create a custom image using the [Dockerfile syntax](https://docs.docker.com/reference/dockerfile/).
+
+Example Dockerfiles for building Backdrop Docker images are found in this repository in the following locations:
+- [/1/apache/Dockerfile](./1/apache/Dockerfile): is a Dockerfile that can be used to build a Docker image that uses Apache as an underlying server.
+- [/1/fpm/Dockerfile](./1/fpm/Dockerfile): is a Dockerfile that can be used to build a Docker image that uses Nginx as an underlying server.
+
+> [!NOTE]  
+> Similar versions using either Apache or Nginx also exist on Docker Hub (using the `apache` and `fpm` tags, specifically), so unless the current images on Docker Hub are broken or that you want to modify these images, there won't usually be a need for you to build your own images as explained here.
 
 # About Docker
 
