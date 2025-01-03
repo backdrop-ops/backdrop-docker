@@ -52,7 +52,7 @@ services:
     image: backdrop:latest
     container_name: backdrop
     ports:
-      - 8088:80
+    - 8080:80
     environment:
       BACKDROP_DB_HOST: mysql
       BACKDROP_DB_USER: backdrop
@@ -262,4 +262,3 @@ View [license information](https://www.drupal.org/licensing/faq) for the softwar
 
 ## Contributing
 - [Contribute to the Backdrop CMS Open Source Project](https://docs.backdropcms.org/documentation/contributors-guide)
-
