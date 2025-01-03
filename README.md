@@ -11,10 +11,10 @@ The process of "spinning up" Backdrop as a Docker container application involves
 
  1)  Ensuring Docker is installed on the host machine
  2)  Creating a named directory to hold Docker configuration file(s)
- 3)  Creating a new docker startup file referencing a Backdrop Docker Image
- 4)  Launching docker in such a way that it processes the new docker startup file
+ 3)  Creating a new Docker startup file (also called: a _Docker Compose_ file) referencing a Backdrop Docker Image
+ 4)  Launching Docker in such a way that it processes the new Docker startup file (using the command `docker compose`)
 
-## Step 1:  Ensure Docker is Installed on the Host Machine
+## Step 1: Ensure Docker is Installed on the Host Machine
 [Click here to see Docker's installation instructions for Windows, Mac and Linux](https://www.docker.com/get-started)
 
 The following example checks for the existence of Docker on a Linux host:
@@ -24,88 +24,71 @@ docker -v
 Docker version 27.4.1, build b9d17ea
 ```
 
-## Step 2:  Create a Named Directory to Hold Docker Configuration File(s)
-The following example creates a directory named `backdrop-eval` for the purpose of holding Docker configuration file(s) on a Linux host
+## Step 2: Create a Named Directory to Hold Docker Configuration File(s)
+
+The following example creates a directory named `backdrop-eval` for the purpose of holding Docker configuration file(s) on a Linux host (the folder is created inside of the current directory which could be the home of the logged-in user or another directory within it).
 
 ```
-md /var/www/backdrop-eval
-
-cd /var/www/backdrop-eval
+mkdir backdrop-eval
+cd backdrop-eval
 ```
 
-## Step 3:  Create a New Docker Startup File Referencing a Backdrop Docker Image
-Docker usually requires configuration information to be able to successfully "spin up" an image.  This is especially true in the case of Backdrop, because **two** containers are involved; MySQl and Backdrop.  Backdrop requires the availability of a MySQL server in order to work.  Docker accommodates this somewhat complicated situation by way of the `compose.yml` file, which contains all of the custom settings needed to help Docker set up the two containers, and get them to interoperate.  
+## Step 3: Create a New Docker Startup (i.e. _Docker compose_) File Referencing a Backdrop Docker Image
+Docker offers a way to launch docker images that need to work together as an application. Such files are called _Docker compose_ files and are usually used when more than one Docker image is needed by the application. In the case of Backdrop, it is not sufficient to run the Backdrop Docker image which contains an Apache PHP application. Additionally, a MySQL database server is also needed. Hence, to "spin up" the Backdrop application (which involves running these two images), a Docker compose file is conveniently used.
 
-The following example `/var/www/backdrop-eval/compose.yml` file ensures that the Backdrop Docker image launches correctly:
+This is the `compose.yml` file, which contains all the settings needed to help Docker set up ad run the two containers, in a manner that allows them to interoperate as an application.
+
+The following example `compose.yml` file (located in the named directory created in Step 2) will conveniently _orchestrate_ the launch of the Backdrop and the MySQL Docker images:
 
 ```
-
 services:
-
   backdrop:
-
     image: backdrop:latest
-
     container_name: backdrop
-
     ports:
-
       - 8088:80
-
     environment:
-
       BACKDROP_DB_HOST: mysql
-
       BACKDROP_DB_USER: backdrop
-
       BACKDROP_DB_PASSWORD: backdrop
 
   mysql:
-
     image: mysql:latest
-
     container_name: mysql
-
     environment:
-
       MYSQL_USER: backdrop
-
       MYSQL_PASSWORD: backdrop
-
       MYSQL_DATABASE: backdrop
-
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
 ```
 
+> [!NOTE]  
+> The Docker compose file above is a bare minimum for testing Backdrop locally. In the case of running Backdrop on a server using Docker, which is often described as "production", the file will likely need to be modified. The modifications involved are beyond the scope of this README file.
+
 ## Step 4:  Launch docker in Such a Way That it Processes the New Docker Startup File
+
 While in the `docker-eval` directory, enter the following command:
 
 ```
 docker compose up
 ```
 
-This command instructs docker to process the `compose.yml` file in the current directory.
+This command instructs Docker to process the `compose.yml` startup file located in the same directory.
 
-The screen should immediately begin to fill with startup messages as docker composes the Backdrop runtime environment.  After a minute or so, the pace of new messages should settle down, with just status messages being displayed.  At this point the Backdrop installation screen should be accessible via a web browser.
+The screen should immediately begin to fill with startup messages as docker processes the compose file and launches the service Docker images referenced within it. After a minute or so, the pace of new messages should settle down, with just status messages being displayed (which are preceded by `backdrop` or `mysql`, referring to the service from which the status message is being emitted).  At this point, the Backdrop installation screen should be accessible via a web browser.
 
-# How to Access Backdrop in a Local Docker Container
-If the web browser is running on **the same machine** as docker, Backdrop should be accessible at:
+## Next Steps/Troubleshooting
 
-```
-http://localhost:8080
-```
+### How to Access Backdrop in a Local Docker Container
 
-# How to Access Backdrop in a Remote Docker Container
-If the web browser is running on **a different machine** than the one running docker, Backdrop should be accessible at:
+If the web browser is running on **the same machine** as Docker, the Backdrop installation screen should be accessible at http://localhost:8088
 
-```
-http://{host-ip}:8080
-```
+### How to Access Backdrop in a Remote Docker Container
 
-_(where `{host-ip}` is the IP address of the machine running docker)_
+If the web browser is running on **a different machine** than the one running docker, Backdrop should be accessible at http://{host-ip}:8088 (where `{host-ip}` is the IP address of the machine running Docker).
 
+### Backdrop Installation - Database Credentials
 
-# Backdrop Installation - Database Credentials
 Don't forget that the Backdrop install process requires the following database credentials to move onward:
 
 ```
@@ -114,73 +97,90 @@ Password:  backdrop
 Database:  backdrop
 ```
 
-# Validating Backdrop-Related Docker Containers
+### Validating Backdrop-Related Docker Containers
+
 Validating that Docker indeed constructed a valid runtime environment for Backdrop may be accomplished with the following command:
 
 ```
 docker ps
 ```
 
-The resulting listing should include TWO (2) docker containers:
+The resulting listing should include two Docker containers:
 
 - One for the MySQL database server that Backdrop requires (mysql)
 - One for Backdrop itself (backdrop)
 
-```
-[example docker ps output here...]
-```
+### How to Access the Backdrop host
 
-## How to Access the Backdrop host
 Accessing the Backdrop host can be accomplished by issuing the following command on the machine running Docker:
 
 ```
 docker exec -it backdrop bash
 ```
 
-## Trying Out the ALTERNATE Docker Images
-The example `compose.yml` specifically references the `backdrop:latest` docker image.
+This will result in creating a shell session _inside_ the container. To confirm this, try to browse the root of the filesystem and notice how it is different from your local root fileysytem:
+```
+ls /
+```
 
-This is just in order to get people new to Docker started quickly and easily.  Once someone becomes more familiar with Docker and using it to "spin up" containers, there is no reason why they wouldn't want to be curious about the **ALTERNATE** docker images, and wondering if one of those images suited their requirements better.  
+### Trying Out Other Docker Images
+
+The example `compose.yml` above specifically references the `backdrop` Docker image.
+
+This is just in order to get people new to Docker quickly and easily started.  Once someone becomes more familiar with Docker and how it is used to "spin up" the Backdrop application, there is no reason why they wouldn't want to try other Backdrop Docker images on Docker Hub or specific versions of the same image (using the [available tags](https://hub.docker.com/_/backdrop/tags)).
 
 To accomplish that, the only thing that needs be done is change the image specifier in the `backdrop` section of the `compose.yml` file.  The general format to identify a specific Docker image is:
 
 ```
-repository:image
+services:
+  backdrop:
+    image: {repository}/{image}:{tag}
 ```
 
+The image specifier is made up of 3 parts: a `{repository}`, `{image}` and `{tag}`. When `{repository}` is omitted, the format becomes `{image}:{tag}`. When the `{tag}` is omitted, this simply becomes `{image}`.
 
-[Click here to see a complete list of every available Backdrop Official Docker Image](https://hub.docker.com/_/backdrop/tags)
+> [!NOTE]  
+> The `{repository}` part above is omitted when the source of the image is [Docker Hub](https://hub.docker.com/). The `{tag}` is omitted when the tag desired is "latest".
+
+[Click here to see a list of available Backdrop Official-Docker-Image tags](https://hub.docker.com/_/backdrop/tags)
 
 # About Docker
 
 ![logo](https://raw.githubusercontent.com/docker-library/docs/c350af05d3fac7b5c3f6327ac82fe4d990d8729c/docker/logo.png)
 
 ## What is Docker?
-Docker is an application that can significantly reduce the time, effort and cost involved when deploying software.  It can dramatically reduce deployment time, often by an order of magnitude (hours to minutes, minutes to seconds).
 
-Functionally speaking, Docker offers two main services:
+Docker started off as a way to create "portable" linux applications, ones that can run on any OS as long as it has a Linux kernel.
 
-- Docker provides a **build** environment that utilizes a Dockerfile to produce a Docker Image containing everything a target application might need to run.  The short name for a Docker Image is simply "image".
+A good way to start to understand Docker is by learning about `chroot` and how it allowed us to fool the application we are running under Linux into thinking that the current folder holds the entirety of the root filesystem. Docker was born out of the desire to offer complete isolation for the running process from the current OS, not only in storage (as `chroot` accomplished), but also in device/process/user/network spaces. This involved leveraging other features of the Linux kernel similar to `chroot` to achive all of these types of isolation. Today, Docker offers a way to run processes along with their depedencies, all packaged together and while only requiring a Linux kernel.
 
-- Docker provides a **run** environment wherein a Docker Image may be loaded and launched, thereby making the target application within that image accessible.  The short name for the Docker Runtime Environment is "container".
+_Functionally and practically speaking, Docker offers two main services:_ 
+
+- Docker provides a way to **build and run** portable applications.  A Docker image is the portable application's executable and a Docker container is the portable application's running instance. These two concepts are simply referred to as _images_ and _containers_ in Docker.
+
+- Docker provides a way to **orchestrate** the building and running of multiple images/containers in tandem.  This feature has been traditionally packaged as a separate tool called `docker-compose` but is now included with Docker itself, which is invoked using the subcommand `docker compose` and relies on the [Docker Compose file](https://github.com/compose-spec/compose-spec) syntax.
 
 ## What is a Dockerfile?
-A Dockerfile is a human-redable script containing all the commands Docker needs to alter a source Docker Image into a target Docker Image.  There is no short name for a Dockerfile, they are simply referred to as a "Dockerfile".
+
+A Dockerfile is a human-redable build script for building Docker images. The image is built using the `docker build` or `docker buildx build` commands. There is no short name for a Dockerfile, they are simply referred to as a "Dockerfile".
 
 ## What is a Docker Image?
-A Docker Image ("image") is the result of a Docker build process.
+
+A Docker Image (or simply an "image") is the result of a Docker build process. It can be uploaded to Docker Hub or other registries and shared with others this way.
 
 ## What is a Backdrop Docker Official Image?
 
-A Backdrop Docker Official Image is a Docker image that exposes the functionality of a Backdrop CMS instance in a container.  These images have been prepared by the Backdrop CMS Project Team in order to spread awareness about Backdrop CMS and to help people quickly and easily deploy Backdrop CMS for evaluation purposes.
+A Backdrop Docker Official Image is a Docker image that is understood to be issued and maintained by the people behind Backdrop iteself, rather than being developed by members of the community (since everyone can build and upload Docker images to Docker Hub).  These images have been prepared by the Backdrop CMS Project Team in order to spread awareness about Backdrop CMS and to help people quickly and easily deploy Backdrop CMS for evaluation purposes.
 
-### What is a MAIN Docker Image?
-The **MAIN** Docker image is the one that is installed by **DEFAULT** by Docker when an incomplete image specifier has been supplied.  This capability was mostly developed for convenience, but it can also be thought of as a "catchall" or "fallback" strategy.  It is also very useful when the latest version of an image is unknown as it will always install the preferred (and latest) version of an image unless instructed not to do so.
+### What is a Default Docker Image?
 
-### What is an ALTERNATE Docker Image?
-**ALTERNATE** Docker images are a different story.  These images must be fully specified if they are to be loaded and launched by Docker specifically _because_ they are not the prefered, latest image.  Instead, they represent an exploration of "what if" scenarios with respect to Backdrop.  Usually, this involves the incorporation of a different software sub-system, such as a different web server.  Sometimes they represent a different version of the language that Backdrop was implemented in.  Sometimes they represent a "snapshot" in the history of the development of Backdrop.  In any event, accessing these images requires that they be fully and completely specified to Docker.
+The default Docker image is the one that is installed by default by Docker when an incomplete image specifier is supplied (i.e. omitting the "tag" part).  This capability was mostly developed for convenience, but it can also be thought of as a "catchall" or "fallback" strategy.  This is usually the image with the tag "latest". 
 
-[Click here to see a complete list of every available Backdrop Official Docker Image](https://hub.docker.com/_/backdrop/tags)
+### What Other Docker Images are There?
+
+Alternative to the default Docker image, Backdrop and other projects may offer tagged images for specific versions, or alternative configurations (for example, Backdrop offers two varieties of images depending on the underlying web server).
+
+[Click here to see a complete list of available Backdrop Official Docker Image tags](https://hub.docker.com/_/backdrop/tags)
 
 # About Backdrop
 ![logo](https://backdropcms.org/files/inline-images/Backdrop-Logo-Horizontal_0.png)
