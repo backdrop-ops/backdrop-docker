@@ -1,3 +1,4 @@
+name: docker-evaluation
 services:
   backdrop:
     build:
@@ -8,6 +9,10 @@ services:
       BACKDROP_DB_HOST: db
       BACKDROP_DB_USER: backdrop
       BACKDROP_DB_PASSWORD: backdrop
+    depends_on:
+      db:
+        condition: service_healthy
+        restart: true
 
   db:
     image: mysql
@@ -16,3 +21,7 @@ services:
       MYSQL_PASSWORD: backdrop
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
       MYSQL_DATABASE: backdrop
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 6s
+      retries: 10
