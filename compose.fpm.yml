@@ -1,0 +1,18 @@
+services:
+  backdrop:
+    build:
+      context: ./1/fpm
+    ports:
+      - 8088:80
+    environment:
+      BACKDROP_DB_HOST: db
+      BACKDROP_DB_USER: backdrop
+      BACKDROP_DB_PASSWORD: backdrop
+
+  db:
+    image: mysql
+    environment:
+      MYSQL_USER: backdrop
+      MYSQL_PASSWORD: backdrop
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_DATABASE: backdrop

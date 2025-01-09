@@ -13,7 +13,7 @@ WORKDIR /var/www/html
 ENV BACKDROP_VERSION=1.29.2
 ENV BACKDROP_MD5=dcb27feb72d78f1f14120d4c9a6bc70b
 
-RUN curl -fSL "https://github.com/backdrop/backdrop/archive/${BACKDROP_VERSION}.tar.gz" -o backdrop.tar.gz \
+RUN curl -fSL "https://github.com/backdrop/backdrop/archive/refs/tags/${BACKDROP_VERSION}.tar.gz" -o backdrop.tar.gz \
 	&& echo "${BACKDROP_MD5} *backdrop.tar.gz" | md5sum -c - \
 	&& tar -xz --strip-components=1 -f backdrop.tar.gz \
 	&& rm backdrop.tar.gz \
