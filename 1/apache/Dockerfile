@@ -24,7 +24,5 @@ RUN curl -fSL "https://github.com/backdrop/backdrop/archive/refs/tags/${BACKDROP
 # Add custom entrypoint to set BACKDROP_SETTINGS correctly
 COPY docker-entrypoint.sh /entrypoint.sh
 
-EXPOSE 80
-
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["apache2-foreground"]
