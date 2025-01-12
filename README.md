@@ -1,8 +1,16 @@
 # Table of Contents
 
-1. [Launch Backdrop using Docker](#launch-backdrop-using-docker)
-2. [About Docker](#about-docker)
-3. [About Backdrop](#about-backdrop)
+1. [Supported tags and Dockerfile links](#supported-releases)
+2. [Launch Backdrop using Docker](#launch-backdrop-using-docker)
+3. [About Docker](#about-docker)
+4. [About Backdrop](#about-backdrop)
+
+# Supported tags and Dockerfile links
+
+
+- [`1.29.3-apache`, `1.29.3`, `1-apache`, `1` (*1/apache/Dockerfile*)](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
+- [`1.29.3-fpm`, `1-fpm` (*1/fpm/Dockerfile*)](https://github.com/kalabox/backdrop-docker/blob/master/1/fpm/Dockerfile)
+
 
 # Launch Backdrop using Docker
 
