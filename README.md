@@ -8,8 +8,8 @@
 # Supported tags and Dockerfile links
 
 
-- [`1.30.2-apache`, `1.30.2`, `1-apache`, `1` (*1/apache/Dockerfile*)](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
-- [`1.30.2-fpm`, `1-fpm` (*1/fpm/Dockerfile*)](https://github.com/kalabox/backdrop-docker/blob/master/1/fpm/Dockerfile)
+- [`1.31.0-apache`, `1.31.0`, `1-apache`, `1` (*1/apache/Dockerfile*)](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
+- [`1.31.0-fpm`, `1-fpm` (*1/fpm/Dockerfile*)](https://github.com/kalabox/backdrop-docker/blob/master/1/fpm/Dockerfile)
 
 
 # Launch Backdrop using Docker
