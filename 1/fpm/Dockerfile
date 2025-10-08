@@ -10,8 +10,8 @@ RUN apt-get update && apt-get install -y libzip-dev libonig-dev libpng-dev libjp
 WORKDIR /var/www/html
 
 # https://github.com/backdrop/backdrop/releases
-ENV BACKDROP_VERSION=1.32.0
-ENV BACKDROP_MD5=dd1b43ba169fb750c64cc2da035b4ceb
+ENV BACKDROP_VERSION=1.32.1
+ENV BACKDROP_MD5=75a8854a67c2602c93db633905c08e28
 
 RUN curl -fSL "https://github.com/backdrop/backdrop/archive/${BACKDROP_VERSION}.tar.gz" -o backdrop.tar.gz \
 	&& echo "${BACKDROP_MD5} *backdrop.tar.gz" | md5sum -c - \
