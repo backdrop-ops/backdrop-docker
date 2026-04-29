@@ -8,8 +8,8 @@
 # Supported tags and Dockerfile links
 
 
-- [`1.33.0-apache`, `1.33.0`, `1-apache`, `1` (*1/apache/Dockerfile*)](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
-- [`1.33.0-fpm`, `1-fpm` (*1/fpm/Dockerfile*)](https://github.com/kalabox/backdrop-docker/blob/master/1/fpm/Dockerfile)
+- [`1.33.2-apache`, `1.33.2`, `1-apache`, `1` (*1/apache/Dockerfile*)](https://github.com/kalabox/backdrop-docker/blob/master/1/apache/Dockerfile)
+- [`1.33.2-fpm`, `1-fpm` (*1/fpm/Dockerfile*)](https://github.com/kalabox/backdrop-docker/blob/master/1/fpm/Dockerfile)
 
 
 # Launch Backdrop using Docker
@@ -34,7 +34,7 @@ The following example checks for the existence of Docker on a Linux host:
 
 ```
 docker -v
-Docker version 27.4.1, build b9d17ea
+Docker version 29.4.1, build 055a478
 ```
 
 ## Step 2: Create a Named Directory to Hold Docker Configuration File(s)
