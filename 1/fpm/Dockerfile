@@ -10,8 +10,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends libzip-dev libo
 WORKDIR /var/www/html
 
 # https://github.com/backdrop/backdrop/releases
-ENV BACKDROP_VERSION=1.34.0
-ENV BACKDROP_MD5=c1ea41cbeaf35e2178ecaedaffcdb649
+ENV BACKDROP_VERSION=1.34.2
+ENV BACKDROP_MD5=7eee1abd33dd63c38f3cc6a4288a575b
 
 RUN curl -fSL "https://github.com/backdrop/backdrop/archive/${BACKDROP_VERSION}.tar.gz" -o backdrop.tar.gz \
 	&& echo "${BACKDROP_MD5} *backdrop.tar.gz" | md5sum -c - \
